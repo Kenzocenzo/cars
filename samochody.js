@@ -30,11 +30,7 @@ app.get("/handler", function (req, res) {
         console.log(newDoc);
         console.log("losowe id dokumentu: " + newDoc._id);
         let context = {};
-        coll1.find({}, function (err, doc) {
-            context.baza = doc;
-            console.log(context);
-            res.render("view1.hbs", context);
-        });
+        res.redirect("/");
     });
 });
 app.get("/delete", function (req, res) {
