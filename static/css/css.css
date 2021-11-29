@@ -1,0 +1,65 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.div {
+    margin-right: 100px;
+}
+
+td,
+th {
+    border: 1px solid black;
+    height: 50px;
+    background-color: rgb(231, 236, 243);
+    font-size: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+th {
+    color: blue;
+}
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.form > tbody > tr > td:first-child {
+    color: blue;
+}
+button,
+input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: blue;
+    background-color: rgb(231, 236, 243);
+    border: 2px solid blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button.delete {
+    color: red;
+    border: 2px solid red;
+}
+button.update {
+    color: darkmagenta;
+    border: 2px solid darkmagenta;
+}
+h1 {
+    color: gray;
+    text-decoration: underline;
+}
+.lol > form {
+    position: relative;
+    top: 10px;
+}
+select {
+    color: blue;
+    border: 1px solid blue;
+    width: 50px;
+}
+
+option.first {
+    color: red;
+    background-color: black;
+}

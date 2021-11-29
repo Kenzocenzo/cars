@@ -1,0 +1,86 @@
+<main class="main">
+    <div class="div">
+        <h1>Dane pojazdu:</h1>
+        <form action="/handler" method="GET">
+            <table class="form">
+                <tr>
+                    <td>Ubezpieczony:</td>
+                    <td><input type="checkbox" name="a"></td>
+                </tr>
+                <tr>
+                    <td>Benzyna:</td>
+                    <td><input type="checkbox" name="b"></td>
+                </tr>
+                <tr>
+                    <td>Uszkodzony:</td>
+                    <td><input type="checkbox" name="c"></td>
+                </tr>
+                <tr>
+                    <td>Napęd 4x4:</td>
+                    <td><input type="checkbox" name="d"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Dodaj">
+        </form>
+    </div>
+    <div>
+        <h1>Wszystkie pojazdy</h1>
+        <table>
+            <tr>
+                <th></th>
+                <th>Ubezpieczony</th>
+                <th>Benzyna</th>
+                <th>Uszkodzony</th>
+                <th>Naped4x4</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {{#each baza}}
+            <tr>
+                <td>{{@index}}</td>
+                {{#ifE @root.eid _id}}
+                <form method="GET">
+                    <td><select name="e"><option class="first" value="{{ubezpieczony}}">{{ubezpieczony}}</option>{{> select}}</select></td>
+                    <td><select name="f"><option class="first" value="{{benzyna}}">{{benzyna}}</option>{{> select}}</select></td>
+                    <td><select name="g"><option class="first" value="{{uszkodzony}}">{{uszkodzony}}</option>{{> select}}</select></td>
+                    <td><select name="h"><option class="first" value="{{naped4x4}}">{{naped4x4}}</option>{{> select}}</select></td>
+                    <td class="lol">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button class="update"type="submit" formaction="/update">Aktualizuj</button>
+                    </td>
+                
+                <td class="lol">
+                    <button type="submit" formaction="/">Anuluj</button>
+                </td>
+                </form>
+                {{else}}
+                <td>{{ubezpieczony}}</td>
+                <td>{{benzyna}}</td>
+                <td>{{uszkodzony}}</td>
+                <td>{{naped4x4}}</td>
+                <td class="lol">
+                    <form action="/delete"method="GET" id="{{@index}}">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button type="button" class="delete" onclick="delet('{{@index}}')">Usuń</button>
+                    </form>
+                </td>
+                <td class="lol">
+                    <form action="/edit" method="GET">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <input type="submit" value="Edytuj">
+                    </form>
+                </td>
+                {{/ifE}}
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</main>
+<script>
+    function delet(x){
+        if (confirm("Na pewno chcesz usunąć?")) {
+            document.getElementById(`${x}`).submit();
+        } }
+
+
+</script>
